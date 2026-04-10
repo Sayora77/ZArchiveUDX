@@ -1,0 +1,2 @@
+D:\Programs\Portable\MinGW\w64devkit\bin\ar.exe qc libzarchive.a CMakeFiles/zarchive.dir/src/zarchivewriter.cpp.obj CMakeFiles/zarchive.dir/src/zarchivereader.cpp.obj CMakeFiles/zarchive.dir/src/sha_256.c.obj
+D:\Programs\Portable\MinGW\w64devkit\bin\ranlib.exe libzarchive.a

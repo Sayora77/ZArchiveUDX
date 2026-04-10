@@ -1,0 +1,8 @@
+D:/GitHub/ZArchiveUDX/build/CMakeFiles/zarchive.dir
+D:/GitHub/ZArchiveUDX/build/CMakeFiles/zarchiveTool.dir
+D:/GitHub/ZArchiveUDX/build/CMakeFiles/edit_cache.dir
+D:/GitHub/ZArchiveUDX/build/CMakeFiles/rebuild_cache.dir
+D:/GitHub/ZArchiveUDX/build/CMakeFiles/list_install_components.dir
+D:/GitHub/ZArchiveUDX/build/CMakeFiles/install.dir
+D:/GitHub/ZArchiveUDX/build/CMakeFiles/install/local.dir
+D:/GitHub/ZArchiveUDX/build/CMakeFiles/install/strip.dir

@@ -4,6 +4,7 @@
 #include <vector>
 #include <string_view>
 #include <unordered_map>
+#include <zstd.h>
 
 #include "zarchivecommon.h"
 
@@ -54,6 +55,8 @@ private:
 	void WriteFileTree();
 	void WriteMetaData();
 	void WriteFooter();
+
+	ZSTD_CCtx* m_zstdCCtx = nullptr;
 
 private:
 	// callbacks

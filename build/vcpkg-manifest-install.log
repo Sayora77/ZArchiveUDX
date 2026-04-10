@@ -1,0 +1,27 @@
+Detecting compiler hash for triplet x64-mingw-static...
+Compiler found: D:/Programs/Portable/MinGW/w64devkit/bin/x86_64-w64-mingw32-g++.exe
+The following packages will be built and installed:
+  * vcpkg-cmake:x64-mingw-static@2024-04-23
+  * vcpkg-cmake-config:x64-mingw-static@2024-05-23
+    zstd:x64-mingw-static@1.5.7
+Additional packages (*) will be modified to complete this operation.
+Restored 3 package(s) from C:\Users\Sayora\AppData\Local\vcpkg\archives in 43.6 ms. Use --debug to see more details.
+Installing 1/3 vcpkg-cmake-config:x64-mingw-static@2024-05-23...
+vcpkg-cmake-config:x64-mingw-static@2024-05-23 package ABI: f4853f4627f0c61006247108669b71a66bb2c95bb61b48f60ade6a0a82831979
+Elapsed time to handle vcpkg-cmake-config:x64-mingw-static: 23.9 ms
+Installing 2/3 vcpkg-cmake:x64-mingw-static@2024-04-23...
+vcpkg-cmake:x64-mingw-static@2024-04-23 package ABI: 9dcb11ce356cac2afa7abe001ffdefd8b46df045ea31edc75ab82b37256b8cf6
+Elapsed time to handle vcpkg-cmake:x64-mingw-static: 42.8 ms
+Installing 3/3 zstd:x64-mingw-static@1.5.7...
+zstd:x64-mingw-static@1.5.7 package ABI: c3812db3340d15d9511d9d22b77f0d019f9e4318242e0efc858bd8b0c4efdf3b
+Elapsed time to handle zstd:x64-mingw-static: 45.3 ms
+Installed contents are licensed to you by owners. Microsoft is not responsible for, nor does it grant any licenses to, third-party packages.
+Packages installed in this vcpkg installation declare the following licenses:
+(BSD-3-Clause OR GPL-2.0-only)
+MIT
+zstd provides CMake targets:
+
+  find_package(zstd CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE zstd::libzstd)
+
+All requested installations completed successfully in: 116 ms

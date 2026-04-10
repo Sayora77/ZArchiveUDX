@@ -17,11 +17,30 @@ ZArchiveWriter::ZArchiveWriter(CB_NewOutputFile cbNewOutputFile, CB_WriteOutputD
 	cbNewOutputFile(-1, ctx);
 	m_mainShaCtx = (struct Sha_256*)malloc(sizeof(struct Sha_256));
 	sha_256_init(m_mainShaCtx, m_integritySha);
+
+	m_zstdCCtx = ZSTD_createCCtx();
+	assert(m_zstdCCtx);
+	
+	ZSTD_CCtx_setParameter(m_zstdCCtx, ZSTD_c_compressionLevel, 22);
+	ZSTD_CCtx_setParameter(m_zstdCCtx, ZSTD_c_strategy, ZSTD_btultra2);
+	
+	ZSTD_CCtx_setParameter(m_zstdCCtx, ZSTD_c_windowLog, 27);
+	ZSTD_CCtx_setParameter(m_zstdCCtx, ZSTD_c_enableLongDistanceMatching, 1);
+	
+	ZSTD_CCtx_setParameter(m_zstdCCtx, ZSTD_c_hashLog, 27);
+	ZSTD_CCtx_setParameter(m_zstdCCtx, ZSTD_c_chainLog, 28);
+	ZSTD_CCtx_setParameter(m_zstdCCtx, ZSTD_c_searchLog, 26);
+	ZSTD_CCtx_setParameter(m_zstdCCtx, ZSTD_c_minMatch, 7);
 };
 
 ZArchiveWriter::~ZArchiveWriter()
 {
 	free(m_mainShaCtx);
+	if (m_zstdCCtx)
+	{
+		ZSTD_freeCCtx(m_zstdCCtx);
+		m_zstdCCtx = nullptr;
+	}
 }
 
 ZArchiveWriter::PathNode* ZArchiveWriter::GetNodeByPath(ZArchiveWriter::PathNode* root, std::string_view path)
@@ -139,8 +158,16 @@ void ZArchiveWriter::StoreBlock(const uint8_t* uncompressedData)
 	// compress and store
 	uint64_t compressedWriteOffset = GetCurrentOutputOffset();
 	m_compressionBuffer.resize(ZSTD_compressBound(_ZARCHIVE::COMPRESSED_BLOCK_SIZE));
-	size_t outputSize = ZSTD_compress(m_compressionBuffer.data(), m_compressionBuffer.size(), uncompressedData, _ZARCHIVE::COMPRESSED_BLOCK_SIZE, 22);
-	assert(outputSize >= 0);
+	ZSTD_CCtx_reset(m_zstdCCtx, ZSTD_reset_session_only);
+	size_t outputSize = ZSTD_compressCCtx(
+		m_zstdCCtx,
+		m_compressionBuffer.data(),
+		m_compressionBuffer.size(),
+		uncompressedData,
+		_ZARCHIVE::COMPRESSED_BLOCK_SIZE,
+		22   // IMPORTANT: use CCtx params only
+	);
+	assert(!ZSTD_isError(outputSize));
 	if (outputSize >= _ZARCHIVE::COMPRESSED_BLOCK_SIZE)
 	{
 		// store block uncompressed if it is equal or larger than the input after compression
