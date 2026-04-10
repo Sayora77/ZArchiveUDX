@@ -139,7 +139,7 @@ void ZArchiveWriter::StoreBlock(const uint8_t* uncompressedData)
 	// compress and store
 	uint64_t compressedWriteOffset = GetCurrentOutputOffset();
 	m_compressionBuffer.resize(ZSTD_compressBound(_ZARCHIVE::COMPRESSED_BLOCK_SIZE));
-	size_t outputSize = ZSTD_compress(m_compressionBuffer.data(), m_compressionBuffer.size(), uncompressedData, _ZARCHIVE::COMPRESSED_BLOCK_SIZE, 6);
+	size_t outputSize = ZSTD_compress(m_compressionBuffer.data(), m_compressionBuffer.size(), uncompressedData, _ZARCHIVE::COMPRESSED_BLOCK_SIZE, 22);
 	assert(outputSize >= 0);
 	if (outputSize >= _ZARCHIVE::COMPRESSED_BLOCK_SIZE)
 	{
