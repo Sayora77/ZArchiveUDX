@@ -1,0 +1,26 @@
+[
+{
+  "directory": "D:/GitHub/ZArchiveUDX/build",
+  "command": "D:\\Programs\\Portable\\MinGW\\w64devkit\\bin\\c++.exe  @CMakeFiles/zarchive.dir/includes_CXX.rsp -std=gnu++20 -o CMakeFiles\\zarchive.dir\\src\\zarchivewriter.cpp.obj -c D:\\GitHub\\ZArchiveUDX\\src\\zarchivewriter.cpp",
+  "file": "D:/GitHub/ZArchiveUDX/src/zarchivewriter.cpp",
+  "output": "CMakeFiles/zarchive.dir/src/zarchivewriter.cpp.obj"
+},
+{
+  "directory": "D:/GitHub/ZArchiveUDX/build",
+  "command": "D:\\Programs\\Portable\\MinGW\\w64devkit\\bin\\c++.exe  @CMakeFiles/zarchive.dir/includes_CXX.rsp -std=gnu++20 -o CMakeFiles\\zarchive.dir\\src\\zarchivereader.cpp.obj -c D:\\GitHub\\ZArchiveUDX\\src\\zarchivereader.cpp",
+  "file": "D:/GitHub/ZArchiveUDX/src/zarchivereader.cpp",
+  "output": "CMakeFiles/zarchive.dir/src/zarchivereader.cpp.obj"
+},
+{
+  "directory": "D:/GitHub/ZArchiveUDX/build",
+  "command": "D:\\Programs\\Portable\\MinGW\\w64devkit\\bin\\cc.exe  @CMakeFiles/zarchive.dir/includes_C.rsp  -o CMakeFiles\\zarchive.dir\\src\\sha_256.c.obj -c D:\\GitHub\\ZArchiveUDX\\src\\sha_256.c",
+  "file": "D:/GitHub/ZArchiveUDX/src/sha_256.c",
+  "output": "CMakeFiles/zarchive.dir/src/sha_256.c.obj"
+},
+{
+  "directory": "D:/GitHub/ZArchiveUDX/build",
+  "command": "D:\\Programs\\Portable\\MinGW\\w64devkit\\bin\\c++.exe  @CMakeFiles/zarchiveTool.dir/includes_CXX.rsp -std=gnu++20 -o CMakeFiles\\zarchiveTool.dir\\src\\main.cpp.obj -c D:\\GitHub\\ZArchiveUDX\\src\\main.cpp",
+  "file": "D:/GitHub/ZArchiveUDX/src/main.cpp",
+  "output": "CMakeFiles/zarchiveTool.dir/src/main.cpp.obj"
+}
+]
