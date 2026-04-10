@@ -254,7 +254,7 @@ int main(int argc, char* argv[])
 			fs::path outputFile;
 			if (!strOutput)
 			{
-				fs::path defaultOutputPath = p.parent_path() / (p.stem().filename().string().append(".zar"));
+				fs::path defaultOutputPath = p.parent_path() / (p.stem().filename().string().append(".wua"));
 				outputFile = defaultOutputPath;
 				printf("Outputting to: %s\n", outputFile.generic_string().c_str());
 			}
