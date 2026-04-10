@@ -138,23 +138,27 @@ void ZArchiveWriter::StoreBlock(const uint8_t* uncompressedData)
 {
 	// compress and store
 	uint64_t compressedWriteOffset = GetCurrentOutputOffset();
-	m_compressionBuffer.resize(ZSTD_compressBound(_ZARCHIVE::COMPRESSED_BLOCK_SIZE));
-	size_t outputSize = ZSTD_compress(m_compressionBuffer.data(), m_compressionBuffer.size(), uncompressedData, _ZARCHIVE::COMPRESSED_BLOCK_SIZE, 22);
-	assert(outputSize >= 0);
-	if (outputSize >= _ZARCHIVE::COMPRESSED_BLOCK_SIZE)
-	{
-		// store block uncompressed if it is equal or larger than the input after compression
-		outputSize = _ZARCHIVE::COMPRESSED_BLOCK_SIZE;
+
+	//m_compressionBuffer.resize(ZSTD_compressBound(_ZARCHIVE::COMPRESSED_BLOCK_SIZE));
+	//size_t outputSize = ZSTD_compress(m_compressionBuffer.data(), m_compressionBuffer.size(), uncompressedData, _ZARCHIVE::COMPRESSED_BLOCK_SIZE, 22);
+	//assert(outputSize >= 0);
+	//if (outputSize >= _ZARCHIVE::COMPRESSED_BLOCK_SIZE)
+	//{
+	//	// store block uncompressed if it is equal or larger than the input after compression
+	//	outputSize = _ZARCHIVE::COMPRESSED_BLOCK_SIZE;
+
 		OutputData(uncompressedData, _ZARCHIVE::COMPRESSED_BLOCK_SIZE);
-	}
-	else
-	{
-		OutputData(m_compressionBuffer.data(), outputSize);
-	}
+
+	//}
+	//else
+	//{
+	//	OutputData(m_compressionBuffer.data(), outputSize);
+	//}
+
 	// add offset translation record
 	if ((m_numWrittenOffsetRecords % _ZARCHIVE::ENTRIES_PER_OFFSETRECORD) == 0)
 		m_compressionOffsetRecord.emplace_back().baseOffset = compressedWriteOffset;
-	m_compressionOffsetRecord.back().size[m_numWrittenOffsetRecords % _ZARCHIVE::ENTRIES_PER_OFFSETRECORD] = (uint16_t)outputSize - 1;
+	m_compressionOffsetRecord.back().size[m_numWrittenOffsetRecords % _ZARCHIVE::ENTRIES_PER_OFFSETRECORD] = (uint16_t)(_ZARCHIVE::COMPRESSED_BLOCK_SIZE - 1);
 	m_numWrittenOffsetRecords++;
 }
 

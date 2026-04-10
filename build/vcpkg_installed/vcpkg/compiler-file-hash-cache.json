@@ -1,0 +1,14 @@
+{
+  "D:/Programs/Portable/MinGW/w64devkit/bin/x86_64-w64-mingw32-g++.exe" : 
+  {
+    "hash" : "089bd2933fc6621afaa1ef4e753530cdd2ce561b",
+    "size" : 3072,
+    "timestamp" : 1775825458
+  },
+  "D:/Programs/Portable/MinGW/w64devkit/bin/x86_64-w64-mingw32-gcc.exe" : 
+  {
+    "hash" : "8c0d1b604a5f5c1dae413adf3a415d540fb606b0",
+    "size" : 3072,
+    "timestamp" : 1775825458
+  }
+}

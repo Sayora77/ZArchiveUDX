@@ -1,0 +1,23 @@
+Package: vcpkg-cmake-config
+Version: 2024-05-23
+Architecture: x64-mingw-static
+Multi-Arch: same
+Abi: f4853f4627f0c61006247108669b71a66bb2c95bb61b48f60ade6a0a82831979
+Status: install ok installed
+
+Package: vcpkg-cmake
+Version: 2024-04-23
+Architecture: x64-mingw-static
+Multi-Arch: same
+Abi: 9dcb11ce356cac2afa7abe001ffdefd8b46df045ea31edc75ab82b37256b8cf6
+Status: install ok installed
+
+Package: zstd
+Version: 1.5.7
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-mingw-static
+Multi-Arch: same
+Abi: c3812db3340d15d9511d9d22b77f0d019f9e4318242e0efc858bd8b0c4efdf3b
+Description: Zstandard - Fast real-time compression algorithm
+Status: install ok installed
+
